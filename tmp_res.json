@@ -1,0 +1,19 @@
+{
+  "message": "fetched food items successfully",
+  "foodItems": [
+    {
+      "_id": "69afb068b1dbc2a2be5642bc",
+      "name": "car ddd",
+      "description": "testing the test car ddd",
+      "video": "https://ik.imagekit.io/6dk2nmpkf/d52450c2-2e22-4cda-9c73-e892f0be18c3_dgGUSvIlt",
+      "foodpartnerId": {
+        "_id": "69ad6d6b0c842e47098ef7c5",
+        "name": "kundan",
+        "email": "kundan.user@example.com",
+        "password": "$2b$10$DlGHfcqN2QZ9hd5zfKZfT.yrTcDCdCf519RqUgpI6ed3LNfPST2DG",
+        "__v": 0
+      },
+      "__v": 0
+    }
+  ]
+}

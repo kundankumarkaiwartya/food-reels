@@ -1,0 +1,241 @@
+/* ═══════════════════════════════════════════
+   Order Page – Premium Design
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.orders-page {
+    font-family: 'Inter', sans-serif;
+    background: #fdfdfd;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+/* ── Header ── */
+.orders-header {
+    background: #ffffff;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #f0f0f4;
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: #f0f0f0;
+}
+
+.orders-header h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin: 0;
+}
+
+/* ── Container ── */
+.orders-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── Order Card ── */
+.order-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #f0f0f4;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(226, 55, 68, 0.08);
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f8f9fa;
+    margin-bottom: 16px;
+}
+
+.res-info {
+    display: flex;
+    gap: 14px;
+}
+
+.res-img-wrapper {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.res-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.res-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.order-summary {
+    font-size: 13px;
+    color: #777;
+    font-weight: 500;
+}
+
+.order-status {
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.order-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #999;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.reorder-btn {
+    border: none;
+    background: none;
+    color: #e23744;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.reorder-btn:hover {
+    color: #c1202e;
+}
+
+/* ── Empty State ── */
+.empty-orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.empty-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background: #fff4f4;
+    color: #e23744;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.empty-orders h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+}
+
+.empty-orders p {
+    color: #777;
+    margin-bottom: 32px;
+    max-width: 300px;
+    line-height: 1.5;
+}
+
+.browse-btn {
+    background: linear-gradient(135deg, #e23744, #ff6b6b);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(226, 55, 68, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.browse-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(226, 55, 68, 0.4);
+}
+
+/* ── Dark Mode ── */
+@media (prefers-color-scheme: dark) {
+    .orders-page { background: #0f0f13; }
+    .orders-header, .order-card { background: #1a1a22; border-color: #2a2a32; }
+    .orders-header h1, .res-name, .empty-orders h2 { color: #f0f0f4; }
+    .back-btn { background: #2a2a32; color: #fff; }
+    .order-summary, .order-time, .empty-orders p { color: #888; }
+    .order-card-header { border-color: #2a2a32; }
+}
+
+/* ── Loading ── */
+.orders-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #e23744;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

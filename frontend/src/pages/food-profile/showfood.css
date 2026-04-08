@@ -1,0 +1,411 @@
+/* ═══════════════════════════════════════════
+   Showfood Page – Zomato-Inspired Premium Detail Design
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.showfood-container {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary, #ffffff);
+    min-height: 100vh;
+    padding-bottom: 110px; /* Space for sticky footer */
+    position: relative;
+}
+
+/* ── Sticky Header Navigation ── */
+.showfood-header-btns {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 2000;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-round-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background 0.2s;
+    color: #333;
+}
+
+.header-round-btn:hover {
+    transform: scale(1.08);
+    background: #ffffff;
+}
+
+.header-round-btn:active {
+    transform: scale(0.92);
+}
+
+.header-right-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.heart-filled {
+    color: #e23744;
+    fill: #e23744;
+}
+
+/* ── Hero Image Section ── */
+.showfood-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: imageReveal 0.8s ease-out;
+}
+
+@keyframes imageReveal {
+    from { transform: scale(1.1); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.hero-overlay-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0,0,0,0.15), transparent);
+}
+
+/* ── Content Section ── */
+.showfood-content {
+    padding: 0 16px;
+    margin-top: -24px;
+    position: relative;
+    z-index: 2;
+}
+
+.content-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06);
+}
+
+.badges-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.veg-tag {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+}
+
+.veg-tag.veg { border-color: #00b140; color: #00b140; }
+.veg-tag.non-veg { border-color: #ed4d4d; color: #ed4d4d; }
+
+.tag-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.offer-tag {
+    background: #fdf2f2;
+    color: #e23744;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(226, 55, 68, 0.1);
+}
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.food-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.restaurant-name {
+    font-size: 14px;
+    color: #777;
+    font-weight: 500;
+}
+
+.rating-pill {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #267e3e;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.meta-info-strip {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 18px 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.meta-info-strip::-webkit-scrollbar { display: none; }
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.star-icon { color: #f97316; }
+
+.section-divider {
+    height: 1px;
+    background: #f0f0f4;
+    margin: 20px 0;
+}
+
+.description-section h3, .quantity-section h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a2e;
+}
+
+.description-section p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.quantity-section {
+    margin-top: 24px;
+}
+
+.qty-picker {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f8f9fa;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.qty-picker button {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background 0.2s;
+}
+
+.qty-picker button:hover { background: #f0f0f0; }
+
+.qty-picker span {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1a1a2e;
+    min-width: 20px;
+    text-align: center;
+}
+
+.extra-info-card {
+    margin-top: 28px;
+    background: #f0f7ff;
+    padding: 12px 16px;
+    border-radius: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    color: #2b6cb0;
+}
+
+.extra-info-card p {
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ── Sticky Footer ── */
+.showfood-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 16px 20px 32px;
+    border-radius: 28px 28px 0 0;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2000;
+}
+
+
+.price-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-label {
+    font-size: 14px;
+    color: #777;
+    font-weight: 500;
+}
+
+.total-amount {
+    font-size: 20px;
+    font-weight: 800;
+    color: #1a1a2e;
+}
+
+.action-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.add-to-cart-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 52px;
+    border-radius: 14px;
+    border: 1.5px solid #e23744;
+    background: #ffffff;
+    color: #e23744;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background: #fdf2f2;
+}
+
+.order-now-btn {
+    flex: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 52px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #e23744 0%, #ff6b6b 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(226, 55, 68, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(226, 55, 68, 0.45);
+}
+
+.order-now-btn:active {
+    transform: scale(0.96);
+}
+
+/* ── Dark Mode ── */
+@media (prefers-color-scheme: dark) {
+    .showfood-container { background: #0f0f13; }
+    .content-card, .showfood-footer { background: #1a1a22; }
+    .header-round-btn { background: rgba(30, 30, 38, 0.85); color: #fff; border-color: rgba(255, 255, 255, 0.1); }
+    .food-title, .total-amount, .qty-picker span, .description-section h3, .quantity-section h3 { color: #f0f0f4; }
+    .description-section p, .restaurant-name, .total-label, .meta-item { color: #888; }
+    .section-divider { background: #2a2a32; }
+    .qty-picker { background: #25252e; border-color: #333; }
+    .qty-picker button { background: #3a3a45; color: #fff; }
+    .extra-info-card { background: rgba(43, 108, 176, 0.15); color: #63b3ed; }
+}
+
+/* ── Desktop Adjustments ── */
+@media (min-width: 1024px) {
+    .showfood-container {
+        display: grid;
+        grid-template-columns: 1fr 450px;
+        gap: 0;
+        padding-bottom: 0;
+    }
+
+    .showfood-hero { height: 100vh; aspect-ratio: unset; position: sticky; top: 0; }
+    .showfood-content { margin-top: 0; padding: 40px; }
+    .content-card { box-shadow: none; padding: 0; }
+    .showfood-footer { position: sticky; bottom: 0; border-radius: 0; box-shadow: 0 -4px 16px rgba(0,0,0,0.05); }
+}
+
+/* ── Loading ── */
+.showfood-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #e23744;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

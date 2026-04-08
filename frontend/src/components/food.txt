@@ -1,0 +1,8 @@
+nav baar ki apan kuch nav option sirf user ke liye rakhe ge or kuch foodpartner ke liye 
+normal user ke liye 
+home , search , profile, reel 
+foodpartner ke liye 
+create , bussiness profile , store 
+
+hum log upload section which make food card 
+upload hoga img , description , title ,  price , 
