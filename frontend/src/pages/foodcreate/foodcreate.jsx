@@ -40,7 +40,8 @@ const Foodcreate = () => {
                 withCredentials: true // Extremely important! Sends the auth cookie to authfoodpartnermiddleware
             });
 
-            console.log("Success:", response.data);
+
+
             alert("Reel created successfully!");
 
             // Optional: clear the form or navigate() to the home page here

@@ -28,9 +28,7 @@ const Home = () => {
             .then((response) => {
                 setVideo(response.data.foodItems);
             })
-            .catch((error) => {
-                console.log(error);
-            })
+            .catch(() => {})
     }, []);
 
     const toggleCommentModal = (reelId) => {
@@ -49,9 +47,7 @@ const Home = () => {
                 .then((response) => {
                     setcomment(response.data.comments);
                 })
-                .catch((error) => {
-                    console.log(error);
-                })
+                .catch(() => {})
         }
     };
 
@@ -79,7 +75,7 @@ const Home = () => {
                 return reel;
             }));
 
-            console.log(response.data.message);
+
         } catch (error) {
             console.error("error toggling like:", error);
         }
@@ -88,7 +84,7 @@ const Home = () => {
     const handlePostComment = async (reelId) => {
         if (!commentText.trim()) return;
 
-        console.log(`posting comment to food ${reelId}:`, commentText);
+
 
         try {
             await axios.post("http://localhost:3000/api/food/comment", {

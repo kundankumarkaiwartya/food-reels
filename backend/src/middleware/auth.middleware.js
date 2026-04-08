@@ -9,7 +9,6 @@ async function authfoodpartnermiddleware(req, res, next) {
     }
 
     if (!token || token === "null" || token === "undefined") {
-        console.log("No token found");
         return res.status(401).json({
             message: "login first"
         })
@@ -17,12 +16,12 @@ async function authfoodpartnermiddleware(req, res, next) {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log("Decoded Payload:", decoded);
+
 
         const foodpartner = await foodpartnerModel.findById(decoded.id);
 
         if (!foodpartner) {
-            console.log("Food partner not found for ID:", decoded.id);
+
             return res.status(401).json({
                 message: "food partner not found"
             });

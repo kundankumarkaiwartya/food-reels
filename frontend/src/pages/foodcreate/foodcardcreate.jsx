@@ -50,7 +50,8 @@ const Foodcardcreate = () => {
                 withCredentials: true
             });
 
-            console.log("Success:", response.data);
+
+
             alert("Food card created successfully!");
 
             // Clear form

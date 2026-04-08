@@ -18,9 +18,7 @@ const Profile = () => {
             .then(response => {
                 setProfile(response.data.foodpartner);
             })
-            .catch(error => {
-                console.log(error);
-            });
+            .catch(() => {});
 
         // Fetch food cards and filter for this specific partner
         const token = localStorage.getItem('token');

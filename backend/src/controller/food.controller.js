@@ -31,7 +31,6 @@ async function createFood(req, res) {
             video: fileUploadResult.url,
             foodpartnerId: req.foodpartner.id
         });
-        console.log(foodItem);
 
         res.status(201).json({
             message: "food created successfully",
