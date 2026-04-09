@@ -1,4 +1,4 @@
-Intake the SSC intake monocabolate takes available const foodpartnerModel = require("../models/foodpartner.model");
+const foodpartnerModel = require("../models/foodpartner.model");
 const foodModel = require("../models/food.model");
 const foodCardModel = require("../models/foodCard");
 const orderModel = require("../models/order.model");
