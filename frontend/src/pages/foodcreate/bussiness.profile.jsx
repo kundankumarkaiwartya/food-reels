@@ -31,7 +31,7 @@ const BusinessProfile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/foodpartner/profile/me", {
+                const response = await axios.get("https://food-reels-6se9.onrender.com/api/foodpartner/profile/me", {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
                     withCredentials: true
                 });
@@ -101,7 +101,7 @@ const BusinessProfile = () => {
                 formData.append("logoImage", imageFiles.logoImage);
             }
 
-            await axios.put("http://localhost:3000/api/foodpartner/profile", formData, {
+            await axios.put("https://food-reels-6se9.onrender.com/api/foodpartner/profile", formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 },

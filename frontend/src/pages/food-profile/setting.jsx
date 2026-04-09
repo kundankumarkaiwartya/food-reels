@@ -13,7 +13,7 @@ const Setting = () => {
             try {
                 const token = localStorage.getItem('token');
                 if (!token) return;
-                const response = await axios.get('http://localhost:3000/api/food/profile', {
+                const response = await axios.get('https://food-reels-6se9.onrender.com/api/food/profile', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUser(response.data.user);

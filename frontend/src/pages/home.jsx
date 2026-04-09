@@ -20,7 +20,7 @@ const Home = () => {
     }, [activeCommentReel]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/food", {
+        axios.get("https://food-reels-6se9.onrender.com/api/food", {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -41,7 +41,7 @@ const Home = () => {
 
         // Only fetch comments if we are opening a reel (reelId is not null)
         if (reelId) {
-            axios.get(`http://localhost:3000/api/food/comment/${reelId}`, {
+            axios.get(`https://food-reels-6se9.onrender.com/api/food/comment/${reelId}`, {
                 withCredentials: true
             })
                 .then((response) => {
@@ -53,7 +53,7 @@ const Home = () => {
 
     const togglelike = async (reelId) => {
         try {
-            const response = await axios.post("http://localhost:3000/api/food/like", {
+            const response = await axios.post("https://food-reels-6se9.onrender.com/api/food/like", {
                 foodId: reelId
             }, {
                 headers: {
@@ -87,7 +87,7 @@ const Home = () => {
 
 
         try {
-            await axios.post("http://localhost:3000/api/food/comment", {
+            await axios.post("https://food-reels-6se9.onrender.com/api/food/comment", {
                 foodId: reelId,
                 comment: commentText
             }, {
@@ -98,7 +98,7 @@ const Home = () => {
             });
 
             // Fetch updated comments
-            axios.get(`http://localhost:3000/api/food/comment/${reelId}`)
+            axios.get(`https://food-reels-6se9.onrender.com/api/food/comment/${reelId}`)
                 .then((response) => setcomment(response.data.comments));
 
         } catch (error) {

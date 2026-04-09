@@ -32,7 +32,7 @@ const Showfood = () => {
                 // Since there is no single item API, we fetch all and filter for now
                 // Alternatively, you can create a new route in backend later
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://localhost:3000/api/food/getfoodcard', {
+                const response = await axios.get('https://food-reels-6se9.onrender.com/api/food/getfoodcard', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -71,7 +71,7 @@ const Showfood = () => {
                 navigate('/user/login');
                 return;
             }
-            await axios.post('http://localhost:3000/api/food/cart', {
+            await axios.post('https://food-reels-6se9.onrender.com/api/food/cart', {
                 foodCardId: food._id
             }, {
                 headers: { Authorization: `Bearer ${token}` }
@@ -92,7 +92,7 @@ const Showfood = () => {
                 return;
             }
 
-            const response = await axios.post('http://localhost:3000/api/order', {
+            const response = await axios.post('https://food-reels-6se9.onrender.com/api/order', {
                 foodCardId: food._id,
                 quantity: quantity,
                 totalPrice: food.price * quantity

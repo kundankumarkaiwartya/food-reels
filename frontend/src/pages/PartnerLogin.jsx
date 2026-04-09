@@ -12,7 +12,7 @@ const PartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/foodpartner/login", {
+    const response = await axios.post("https://food-reels-6se9.onrender.com/api/auth/foodpartner/login", {
       email,
       password
     }, { withCredentials: true })

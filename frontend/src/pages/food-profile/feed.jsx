@@ -36,7 +36,7 @@ const Feed = () => {
         const fetchFoodCards = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://localhost:3000/api/food/getfoodcard?search=${searchQuery}`, {
+                const response = await axios.get(`https://food-reels-6se9.onrender.com/api/food/getfoodcard?search=${searchQuery}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     },
@@ -48,7 +48,7 @@ const Feed = () => {
                 // Fetch user cart to highlight added items
                 if (token) {
                     try {
-                        const cartRes = await axios.get("http://localhost:3000/api/food/cart", {
+                        const cartRes = await axios.get("https://food-reels-6se9.onrender.com/api/food/cart", {
                             headers: { Authorization: `Bearer ${token}` },
                             withCredentials: true
                         });
@@ -101,7 +101,7 @@ const Feed = () => {
             setUserCart(prev => [...prev, foodCardId]);
         }
         try {
-            await axios.post("http://localhost:3000/api/food/cart", { foodCardId }, {
+            await axios.post("https://food-reels-6se9.onrender.com/api/food/cart", { foodCardId }, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
                 withCredentials: true
             });

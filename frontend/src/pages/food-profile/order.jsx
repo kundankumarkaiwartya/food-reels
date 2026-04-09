@@ -27,7 +27,7 @@ const Order = () => {
                     return;
                 }
 
-                const response = await axios.get('http://localhost:3000/api/order/history', {
+                const response = await axios.get('https://food-reels-6se9.onrender.com/api/order/history', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 

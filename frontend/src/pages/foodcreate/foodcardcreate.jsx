@@ -43,7 +43,7 @@ const Foodcardcreate = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post("http://localhost:3000/api/food/createfoodcard", formData, {
+            const response = await axios.post("https://food-reels-6se9.onrender.com/api/food/createfoodcard", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 },

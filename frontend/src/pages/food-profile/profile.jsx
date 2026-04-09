@@ -14,7 +14,7 @@ const Profile = () => {
 
     useEffect(() => {
         // Fetch partner profile data
-        axios.get(`http://localhost:3000/api/foodpartner/${id}`, { withCredentials: true })
+        axios.get(`https://food-reels-6se9.onrender.com/api/foodpartner/${id}`, { withCredentials: true })
             .then(response => {
                 setProfile(response.data.foodpartner);
             })
@@ -23,7 +23,7 @@ const Profile = () => {
         // Fetch food cards and filter for this specific partner
         const token = localStorage.getItem('token');
         if (token) {
-            axios.get('http://localhost:3000/api/food/getfoodcard', {
+            axios.get('https://food-reels-6se9.onrender.com/api/food/getfoodcard', {
                 headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true
             })
