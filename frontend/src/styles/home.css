@@ -1,233 +1,287 @@
+:root {
+  --primary-color: #ff4757;
+  --bg-color: #0d0d0d;
+  --video-bg: #000;
+  --text-white: #ffffff;
+  --reel-width: 350px;
+}
+
 .reels-container {
-    width: 100vw;
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    background-color: #000;
-    /* Hide scrollbar for a seamless, app-like look */
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;    /* Firefox */
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.reels-container::-webkit-scrollbar {
-    display: none;            /* Chrome, Safari, Opera */
+/* Ensure body doesn't have extra padding from other styles */
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: #000;
+  overflow: hidden;
 }
 
+/* Scrolling Reels Feed */
+.reels-feed {
+  width: 100%;
+  max-width: var(--reel-width);
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reels-feed::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual Reel Wrapper */
 .reel-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #111;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+/* Responsive override for mobile */
+@media (max-width: 500px) {
+  .reels-feed {
+    max-width: 100vw;
+  }
+}
+
+.reel-content-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.reel-video-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: var(--video-bg);
+  overflow: hidden;
 }
 
 .reel-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none; /* Prevent standard video controls from interfering */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* Overlay for text and actions */
 .reel-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 24px 20px 30px; /* Extra padding on bottom for mobile */
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    /* Avoid clicking gradient blocking clicks, only block on children */
-    pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 16px 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  color: white;
+  z-index: 5;
 }
 
-.reel-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    pointer-events: auto; /* Enable clicks on interactive elements */
+.reel-info {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.visit-button {
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: inherit;
+.creator-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.visit-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+.creator-name {
+  font-weight: 700;
+  font-size: 14px;
 }
 
-.visit-button:active {
-    transform: scale(0.96);
+.follow-tag {
+  border: 1px solid white;
+  padding: 2px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  background: transparent;
+  color: white;
+  cursor: pointer;
 }
 
 .reel-description {
-    color: #fff;
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 0;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    max-width: 85%;
-    font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 85%;
 }
 
-/* Sidebar on the Left */
-.reel-sidebar-left {
-    position: absolute;
-    left: 16px;
-    bottom: 120px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 10;
+/* Action Sidebar Overlaid on Video */
+.reel-side-actions {
+  position: absolute;
+  right: 8px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  z-index: 10;
 }
 
-.action-button {
-    background: transparent;
-    border: none;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    padding: 0;
+.action-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-.action-button:hover {
-    transform: scale(1.1);
+.action-icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.1s;
 }
 
-.action-button .icon {
-    font-size: 28px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+.action-icon-btn:hover {
+  transform: scale(1.1);
 }
 
-.action-button .action-text {
-    font-size: 13px;
-    font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    font-family: inherit;
+.action-count {
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* --- Comment Modal (Slide up) --- */
+
+
+/* Comment Modal Enhancements */
 .comment-overlay-backdrop {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 50; /* Over everything else in the absolute wrapper */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .comment-modal-card {
-    width: 100%;
-    max-width: 500px; /* Optional for large screens */
-    height: 60%;
-    background: #fff;
-    border-radius: 20px 20px 0 0;
-    display: flex;
-    flex-direction: column;
-    animation: slideUp 0.3s ease-out forwards;
-    pointer-events: auto; /* Let clicks work here */
+  width: 100%;
+  max-width: 450px;
+  height: 80%;
+  background: #1c1c1c;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .comment-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid #eee;
-}
-
-.comment-modal-header h3 {
-    margin: 0;
-    font-size: 16px;
-    color: #111;
-    font-family: 'Inter', sans-serif;
-}
-
-.close-btn {
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: #444;
+  padding: 16px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
 }
 
 .comment-list-placeholder {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px 20px;
-    background: #fafafa;
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: transparent;
+  color: #efefef;
+}
+
+.comment-item {
+  margin-bottom: 16px;
+}
+
+.comment-user {
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.comment-text {
+  font-size: 14px;
+  color: #ccc;
 }
 
 .comment-input-area {
-    padding: 16px 20px;
-    border-top: 1px solid #eee;
-    display: flex;
-    gap: 12px;
-    background: #fff;
-    border-radius: 0 0 20px 20px;
+  padding: 16px;
+  border-top: 1px solid #333;
+  background: #1c1c1c;
 }
 
 .comment-input-area input {
-    flex: 1;
-    padding: 12px 16px;
-    border-radius: 24px;
-    border: 1px solid #ccc;
-    outline: none;
-    font-size: 14px;
+  background: #262626;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 20px;
+  width: 100%;
 }
 
-.comment-input-area input:focus {
-    border-color: #888;
+.visit-button {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.comment-input-area button {
-    background: #ff4757; /* Matches app theme better */
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 0 20px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s;
+.visit-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
 }
 
-.comment-input-area button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-}
-
-.comment-input-area button:not(:disabled):hover {
-    opacity: 0.9;
+.visit-button:active {
+  transform: scale(0.96);
 }
