@@ -28,7 +28,7 @@ const Home = () => {
             .then((response) => {
                 setVideo(response.data.foodItems);
             })
-            .catch(() => {})
+            .catch(() => { })
     }, []);
 
     const toggleCommentModal = (reelId) => {
@@ -47,7 +47,7 @@ const Home = () => {
                 .then((response) => {
                     setcomment(response.data.comments);
                 })
-                .catch(() => {})
+                .catch(() => { })
         }
     };
 

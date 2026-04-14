@@ -402,3 +402,19 @@ module.exports = {
     getCartItems
 }
 
+
+module.exports = {
+    createFood,
+    getfooditem,
+    likeFood,
+    commentFood,
+    getComments,
+    getlike,
+    createfoodCard,
+    getfoodCard,
+    deletefoodcard,
+    getUserProfile,
+    toggleCartItem,
+    getCartItems
+}
+

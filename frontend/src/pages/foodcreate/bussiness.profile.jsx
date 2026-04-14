@@ -116,10 +116,20 @@ const BusinessProfile = () => {
         }
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("role");
-        navigate("/foodpartner/login");
+    const handleLogout = async () => {
+        const confirmLogout = window.confirm("Are you sure you want to logout?");
+        if (confirmLogout) {
+            try {
+                await axios.get("https://food-reels-6se9.onrender.com/api/auth/foodpartner/logout", {
+                    withCredentials: true
+                });
+            } catch (error) {
+                console.error("Partner logout error:", error);
+            }
+            localStorage.removeItem("token");
+            localStorage.removeItem("role");
+            navigate("/foodpartner/login");
+        }
     };
 
     if (loading) return <div style={{ padding: '20px', textAlign: 'center' }}>Loading profile...</div>;

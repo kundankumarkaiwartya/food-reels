@@ -35,6 +35,12 @@ const Order = () => {
                 setLoading(false);
             } catch (err) {
                 console.error("Fetch Orders Error:", err);
+                if (err.response?.status === 401) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('role');
+                    localStorage.removeItem('user');
+                    navigate('/user/login');
+                }
                 setError(err.response?.data?.message || err.message);
                 setLoading(false);
             }

@@ -13,18 +13,23 @@ const PartnerRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("https://food-reels-6se9.onrender.com/api/auth/foodpartner/register", {
-      name,
-      email,
-      password
-    }, { withCredentials: true })
-    if (response.data.token) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("role", "foodpartner");
-      localStorage.setItem("user", JSON.stringify(response.data.foodpartner));
-    }
+    try {
+      const response = await axios.post("https://food-reels-6se9.onrender.com/api/auth/foodpartner/register", {
+        name,
+        email,
+        password
+      }, { withCredentials: true })
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", "foodpartner");
+        localStorage.setItem("user", JSON.stringify(response.data.foodpartner));
+      }
 
-    navigate("/create-food");
+      navigate("/create-food");
+    } catch (error) {
+      console.error("Partner Registration error:", error);
+      alert(error.response?.data?.message || "Registration failed. Please try again.");
+    }
   }
   return (
     <div className="auth-container">

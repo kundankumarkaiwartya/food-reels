@@ -12,17 +12,22 @@ const PartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("https://food-reels-6se9.onrender.com/api/auth/foodpartner/login", {
-      email,
-      password
-    }, { withCredentials: true })
-    if (response.data.token) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("role", "foodpartner");
-      localStorage.setItem("user", JSON.stringify(response.data.foodpartner));
-    }
+    try {
+      const response = await axios.post("https://food-reels-6se9.onrender.com/api/auth/foodpartner/login", {
+        email,
+        password
+      }, { withCredentials: true })
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", "foodpartner");
+        localStorage.setItem("user", JSON.stringify(response.data.foodpartner));
+      }
 
-    navigate("/create-food");
+      navigate("/create-food");
+    } catch (error) {
+      console.error("Partner Login error:", error);
+      alert(error.response?.data?.message || "Login failed. Please check your credentials.");
+    }
   }
   return (
     <div className="auth-container">

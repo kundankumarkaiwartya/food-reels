@@ -46,6 +46,9 @@ const UserProfile = () => {
                 setError(err.response?.data?.message || err.message);
                 setLoading(false);
                 if (err.response?.status === 401) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('role');
+                    localStorage.removeItem('user');
                     navigate('/user/login');
                 }
             }

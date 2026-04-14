@@ -14,20 +14,26 @@ const UserRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("https://food-reels-6se9.onrender.com/api/auth/user/register", {
-      fullName,
-      email,
-      password
-    },
-      { withCredentials: true }
-    )
-    if (response.data.token) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("role", "user");
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
+    const apiBase = import.meta.env.VITE_API_URL || "https://food-reels-6se9.onrender.com/api";
+    try {
+      const response = await axios.post(`${apiBase}/auth/user/register`, {
+        fullName,
+        email,
+        password
+      },
+        { withCredentials: true }
+      )
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("role", "user");
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+      }
 
-    navigate("/feed");
+      navigate("/feed");
+    } catch (error) {
+      console.error("Registration error:", error);
+      alert(error.response?.data?.message || "Registration failed. Please try again.");
+    }
   }
 
   return (
