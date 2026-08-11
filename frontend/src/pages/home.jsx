@@ -163,7 +163,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("https://food-reels-6se9.onrender.com/api/food", {
+        axios.get("http://localhost:3000/api/food", {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
@@ -183,7 +183,7 @@ const Home = () => {
         }
 
         if (reelId) {
-            axios.get(`https://food-reels-6se9.onrender.com/api/food/comment/${reelId}`, {
+            axios.get(`http://localhost:3000/api/food/comment/${reelId}`, {
                 withCredentials: true
             })
                 .then((response) => {
@@ -195,7 +195,7 @@ const Home = () => {
 
     const togglelike = async (reelId) => {
         try {
-            await axios.post("https://food-reels-6se9.onrender.com/api/food/like", {
+            await axios.post("http://localhost:3000/api/food/like", {
                 foodId: reelId
             }, {
                 headers: {
@@ -224,7 +224,7 @@ const Home = () => {
         if (!commentText.trim()) return;
 
         try {
-            await axios.post("https://food-reels-6se9.onrender.com/api/food/comment", {
+            await axios.post("http://localhost:3000/api/food/comment", {
                 foodId: reelId,
                 comment: commentText
             }, {
@@ -234,7 +234,7 @@ const Home = () => {
                 withCredentials: true
             });
 
-            axios.get(`https://food-reels-6se9.onrender.com/api/food/comment/${reelId}`)
+            axios.get(`http://localhost:3000/api/food/comment/${reelId}`)
                 .then((response) => setcomment(response.data.comments));
 
         } catch (error) {

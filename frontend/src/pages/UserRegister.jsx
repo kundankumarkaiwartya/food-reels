@@ -14,7 +14,7 @@ const UserRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const apiBase = import.meta.env.VITE_API_URL || "https://food-reels-6se9.onrender.com/api";
+    const apiBase = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
     try {
       const response = await axios.post(`${apiBase}/auth/user/register`, {
         fullName,

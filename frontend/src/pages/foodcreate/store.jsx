@@ -16,7 +16,7 @@ const Store = () => {
     useEffect(() => {
         const fetchDashboard = async () => {
             try {
-                const response = await axios.get("https://food-reels-6se9.onrender.com/api/foodpartner/dashboard", {
+                const response = await axios.get("http://localhost:3000/api/foodpartner/dashboard", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`
                     },
@@ -39,7 +39,7 @@ const Store = () => {
         if (!confirmDelete) return;
 
         try {
-            await axios.post(`https://food-reels-6se9.onrender.com/api/food/${foodCardId}`, {}, {
+            await axios.post(`http://localhost:3000/api/food/${foodCardId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
                 },

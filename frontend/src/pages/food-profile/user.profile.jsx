@@ -13,7 +13,8 @@ import {
     ShoppingCart,
     Edit2,
     Calendar,
-    ArrowLeft
+    ArrowLeft,
+    Store
 } from 'lucide-react';
 import './user.profile.css';
 import axios from 'axios';
@@ -34,7 +35,7 @@ const UserProfile = () => {
                     return;
                 }
 
-                const response = await axios.get('https://food-reels-6se9.onrender.com/api/food/profile', {
+                const response = await axios.get('http://localhost:3000/api/food/profile', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 
@@ -62,6 +63,7 @@ const UserProfile = () => {
         { icon: <ShoppingCart size={20} />, label: 'My Cart', path: '/favourites' },
         { icon: <MapPin size={20} />, label: 'Saved Addresses', path: '/address' },
         { icon: <Settings size={20} />, label: 'Settings', path: '/setting' },
+        { icon: <Store size={20} />, label: 'Become a Partner', path: '/foodpartner/register' },
     ];
 
     if (loading) {

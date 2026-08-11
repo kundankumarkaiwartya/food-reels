@@ -54,11 +54,11 @@ const AppRoutes = () => {
         <Router>
             <NavbarSelector />
             <Routes>
-                <Route path="/" element={<Navigate to="/user/login" />} />
+                <Route path="/" element={<Navigate to="/feed" />} />
                 <Route path="/user/register" element={<PublicRoute><UserRegister /></PublicRoute>} />
                 <Route path="/user/login" element={<PublicRoute><UserLogin /></PublicRoute>} />
-                <Route path="/foodpartner/register" element={<PublicRoute><PartnerRegister /></PublicRoute>} />
-                <Route path="/foodpartner/login" element={<PublicRoute><PartnerLogin /></PublicRoute>} />
+                <Route path="/foodpartner/register" element={<PartnerRegister />} />
+                <Route path="/foodpartner/login" element={<PartnerLogin />} />
                 <Route path="/home" element={<Home />} />
 
                 <Route path="/create-food" element={<Foodcreate />} />

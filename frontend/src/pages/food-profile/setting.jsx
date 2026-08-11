@@ -13,7 +13,7 @@ const Setting = () => {
             try {
                 const token = localStorage.getItem('token');
                 if (!token) return;
-                const response = await axios.get('https://food-reels-6se9.onrender.com/api/food/profile', {
+                const response = await axios.get('http://localhost:3000/api/food/profile', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setUser(response.data.user);
@@ -28,7 +28,7 @@ const Setting = () => {
         const confirmLogout = window.confirm("Are you sure you want to logout?");
         if (confirmLogout) {
             try {
-                await axios.get('https://food-reels-6se9.onrender.com/api/auth/user/logout', {
+                await axios.get('http://localhost:3000/api/auth/user/logout', {
                     withCredentials: true
                 });
             } catch (err) {

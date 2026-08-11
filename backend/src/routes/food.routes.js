@@ -34,7 +34,7 @@ router.post("/createfoodcard", authMiddleware.authfoodpartnermiddleware, authMid
 router.post("/cart", authMiddleware.authuserMiddleware, foodController.toggleCartItem)
 router.get("/cart", authMiddleware.authuserMiddleware, foodController.getCartItems)
 
-router.get("/getfoodcard", authMiddleware.authuserMiddleware, foodController.getfoodCard)
+router.get("/getfoodcard", foodController.getfoodCard)
 router.get("/profile", authMiddleware.authuserMiddleware, foodController.getUserProfile)
 
 // Wildcard route should be at the bottom

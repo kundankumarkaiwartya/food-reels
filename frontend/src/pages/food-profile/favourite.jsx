@@ -12,7 +12,7 @@ const Cart = () => {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const response = await axios.get("https://food-reels-6se9.onrender.com/api/food/cart", {
+                const response = await axios.get("http://localhost:3000/api/food/cart", {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
                     withCredentials: true
                 });
@@ -31,7 +31,7 @@ const Cart = () => {
         // Optimistic UI Update
         setCart(prev => prev.filter(item => item._id !== foodCardId));
         try {
-            await axios.post("https://food-reels-6se9.onrender.com/api/food/cart", { foodCardId }, {
+            await axios.post("http://localhost:3000/api/food/cart", { foodCardId }, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
                 withCredentials: true
             });
