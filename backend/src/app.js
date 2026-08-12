@@ -13,7 +13,8 @@ const allowedOrigins = [
     process.env.CLIENT_URL,
     "http://localhost:5173",
     "http://localhost:3000",
-    "https://food-reels-three.vercel.app"
+    "https://food-reels-three.vercel.app",
+    "https://zipmon-1houjecb1-kumarkaiwrtyakundan-1173s-projects.vercel.app"
 ].filter(Boolean);
 
 app.use(express.json());
